@@ -18,7 +18,8 @@ For each website you want to scrape you have to specify a url in the `sites-to-s
 And then you're going to give the scraper a `map` to step through, and tell the scraper which data you want extracted.
 For example if we want to scrape the website at 'http://www.webtickets.co.za/' for all the shows they're selling tickets, our map will look like this:
 
-```'webtickets'		: {
+```
+'webtickets'		: {
 		'main_content'	: {
 			'div': {
 				'properties': { 'id' : 'event_list' }
@@ -61,4 +62,5 @@ For example if we want to scrape the website at 'http://www.webtickets.co.za/' f
 				}
 			}
 		}
-	}```
+	}
+```
