@@ -35,8 +35,8 @@ phases:
       #- JOB=$(cat Selector.txt) This code selects the text form the selector file in repo and uses that to get location and file 
 
       #Get the location of the file in the repo and the files name for the specific job that needs to be run
-#       - LOCATION=$(jq -r '.project' infra/jobs_bi_infra.json | jq -r '.content' | jq '.[] | select(.name=='\"$JOB\"')' | jq -r '.location')
+      - LOCATION=$(jq -r '.project' jobs_bi_infra.json | jq -r '.content' | jq '.[] | select(.name=='\"$JOB\"')' | jq -r '.location')
       #- cd operations/publishing
       #- python financeload.py
       
-      - python test.py
+      - python $LOCATION
