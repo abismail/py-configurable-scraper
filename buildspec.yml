@@ -1,1 +1,42 @@
+version: 0.2
 
+#env:
+  #variables:
+     # key: "There are no variables"
+  #parameter-store:
+     # key: "There are no variables"
+
+phases:
+  install:
+    #If you use the Ubuntu standard image 2.0 or later, you must specify runtime-versions.
+    #If you specify runtime-versions and use an image other than Ubuntu standard image 2.0, the build fails.
+    runtime-versions:
+       python: 3.8
+    #commands:
+      # - There are no build commands
+  pre_build:
+    commands:
+      - pip install mysql-connector-python oauth2client gspread pandas==1.2.5 sqlalchemy==1.4.15 pymysql requests google-api-python-client httplib2 pyOpenSSL gspread-formatting selenium webdriver-manager bs4
+   
+      #- apt-get -y update
+      #- apt-get install -y google-chrome-stable
+      #- apt-get install -yqq unzip curl
+      #- wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
+      #- unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/     
+     
+     # - pip install gspread
+     # - pip install pandas
+     # - pip install sqlalchemy
+     # - pip install pymysql
+     #workzz
+  build:
+    commands:
+      #Get name of job you want to run from selector.txt
+      #- JOB=$(cat Selector.txt) This code selects the text form the selector file in repo and uses that to get location and file 
+
+      #Get the location of the file in the repo and the files name for the specific job that needs to be run
+#       - LOCATION=$(jq -r '.project' infra/jobs_bi_infra.json | jq -r '.content' | jq '.[] | select(.name=='\"$JOB\"')' | jq -r '.location')
+      #- cd operations/publishing
+      #- python financeload.py
+      
+      - python test.py
